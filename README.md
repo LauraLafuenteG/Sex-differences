@@ -1,0 +1,1 @@
+This is a work in progress. I will add here a MATLAB code used in a manuscript I am preparing, in which we investigate sex differences in bone fracture healing as proof-of-concept. For it, we use a ODE system of 10 equations with two different parameter sets: male and female.
