@@ -9,8 +9,7 @@
 clc; close all; clear;
 
 %% Parameter values with descriptions and units
-E = 'E1';                           % Choose equilibria: E0 (non-healing), E1 (healing), E2 (non-/delayed-healing)
-                                    % E1 = reference state
+
 maxinf = 50;
 maxrep = 400;
 
@@ -62,31 +61,14 @@ aps1 = 20;                          % Constant enhancement of c1 to Cs prolifera
 kps = 0.5;                          % Proliferation rate of Cs [/day]
 kls = 1*10^6;                       % Carrying capacity of Cs [cells/mL]
 ds = 1;                             % Differentiation rate of Cs [/day] 
-%ds =1 for E0, =1 for E1, =0.1 for E2
 kpb = 0.2202;                       % Proliferation rate of Cb [/day]
 klb = 1*10^6;                       % Carrying capacity of Cb [cells/mL]
 db = 0.15;                          % Differentiation rate of Cb [/day] to osteocytes + apoptosis
-%db =0.3 for E0, =0.15 for E1, =0.15 for E2
 pcs = 3*10^(-6);                    % Fibrocartilage synthesis rate [g/cells/day]
 qcd1 = 3*10^(-6);                   % Fibrocartilage degradation rate [mL/cells/day]
 qcd2 = 0.2*10^(-6);                 % Fibrocartilage degradation rate by osteoclasts [mL/cells/day]
 pbs = 5*10^(-8);                    % Bone tissue synthesis rate [g/cells/day]
 qbd = 5*10^(-8);                    % Bone tissue degradation rate [mL/cells/day]
-
-switch E
-    case 'E0'
-        disp('*** Equilibrium point E0: non-healing ***');
-        ds = 1;     % E0 = E1
-        db = 0.3;   % E0 = E1*2
-    case 'E1'
-        disp('*** Equilibrium point E1: healing ***');
-        ds = 1;
-        db = 0.15;
-    case 'E2'
-        disp('*** Equilibrium point E2: non- or delayed-healing ***');
-        ds = 0.1;   % E2 = E1/10
-        db = 0.15;  % E2 = E1
-end
 
 
 %% Initial conditions
@@ -285,3 +267,4 @@ function dydt = odefun(~,y,ke1,ke2,aed,kmax,Mmax,k01,k02,k12,k21,d0,d1,d2,k0,k1,
     dydt(10) = (pbs - qbd*y(10)) * y(8);                        % Bone (mb)
 
 end
+
