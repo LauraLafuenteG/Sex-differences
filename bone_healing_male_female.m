@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Bone fracture healing: inflammation ODE model   %
+%          Bone fracture healing ODE model          %
 %           adapted from Trejo et al., 2019         %
 %        Implemented by Laura Lafuente-Gracia       %
-%             Last revision: 23/07/2025             %
+%             Last revision: 16/09/2025             %
 %           Male vs. female parameter sets          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -283,4 +283,5 @@ function dydt = odefun(~,y,ke1,ke2,aed,kmax,Mmax,k01,k02,k12,k21,d0,d1,d2,k0,k1,
     dydt(8)  = Ab*y(8) * ( 1 - y(8)/klb ) + F1*y(7) - db*y(8);  % Osteoblasts (Cb)
     dydt(9)  = (pcs - qcd1*y(9)) * y(7) - qcd2*y(9)*y(8);       % Fibrocartilage (mc)
     dydt(10) = (pbs - qbd*y(10)) * y(8);                        % Bone (mb)
+
 end
