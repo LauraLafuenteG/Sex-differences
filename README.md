@@ -1,1 +1,1 @@
-This folder contains the MATLAB scripts used in Lafuente-Gracia et al., Mind the gap: a mathematical model to explore sex differences in bone fracture healing, submitted to Computers in Biology and Medicine (2025).
+This folder contains the MATLAB scripts used in Lafuente-Gracia et al., Mind the gap: a mathematical model to explore sex differences in bone fracture healing, submitted to _Computers in Biology and Medicine_ (2025).
